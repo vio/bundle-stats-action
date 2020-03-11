@@ -1,5 +1,10 @@
 name: 'BundleStats'
 description: 'Run bundle-stats action'
 runs:
-  using: 'node13'
+  using: 'node12'
   main: 'index.js'
+inputs:
+  webpack-stats-path:
+    descript: 'Webpack stats filepath'
+    required: true
+    default: 'dist/webpack-stats.json'
