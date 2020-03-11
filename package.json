@@ -1,0 +1,16 @@
+{
+  "name": "bundle-stats-action",
+  "version": "0.0.1",
+  "description": "BundleStats Github Action",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": ["github-action", "bundle-size", "bundle-stats"],
+  "author": {
+    "name": "Viorel Cojocaru",
+    "email": "vio@beanon.com",
+    "url": "https://beanon.com"
+  },
+  "license": "MIT"
+}
