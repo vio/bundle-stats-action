@@ -1,0 +1,28 @@
+name: Example
+
+on:
+  push
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version: [13.x]
+
+    steps:
+    - uses: actions/checkout@v2
+
+    - name: Use Node.js ${{ matrix.node-version }}
+      uses: actions/setup-node@v1
+      with:
+        node-version: ${{ matrix.node-version }}
+
+    - run: cd examples/app && npm ci
+
+    - run: cd examples/app && npm run build --if-present
+
+    - name: Run bundle-stats
+      uses: ./
+      with:
+        webpack-stats-path: examples/app/artifacts/webpack-stats.json
