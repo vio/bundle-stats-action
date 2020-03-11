@@ -1,0 +1,5 @@
+name: 'BundleStats'
+description: 'Run bundle-stats action'
+runs:
+  using: 'node13'
+  main: 'index.js'
