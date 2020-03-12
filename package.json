@@ -1,6 +1,6 @@
 {
   "name": "bundle-stats-action",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "description": "BundleStats Github Action",
   "main": "index.js",
   "scripts": {
