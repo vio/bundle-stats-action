@@ -1,5 +1,5 @@
 name: 'BundleStats'
-description: 'Generates bundle-stats reports'
+description: 'Generates bundle-stats reports for webpack build stats.'
 branding:
   icon: 'box'
   color: 'blue'
