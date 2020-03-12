@@ -1,6 +1,6 @@
 # [BundleStats](https://github.com/relative-ci/bundle-stats) Github Action
 
-This action generates [bundle-stats](https://github.com/relative-ci/bundle-stats) reports for webpack build stats.
+This action generates [bundle-stats](https://github.com/relative-ci/bundle-stats) reports for webpack stats.
 
 ## Inputs
 
