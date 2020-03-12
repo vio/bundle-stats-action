@@ -12,9 +12,9 @@ This action generates a [bundle-stats](https://github.com/relative-ci/bundle-sta
 
 ## Outputs
 
-`bundle-stats` artifacts:
+`bundle-stats` artifact with `html` and `json` reports:
 
-![bundle-stats artifacts](./assets/action.jpg =640x)
+<img src="https://raw.githubusercontent.com/vio/bundle-stats-action/master/assets/action.jpg?token=AAADH5EKGBHTKLLAHXZN3GC6NGDI2" alt="BundleStats report" width="640" />
 
 ## Example usage
 
