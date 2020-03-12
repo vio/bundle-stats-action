@@ -1,5 +1,8 @@
 name: 'BundleStats'
-description: 'Run bundle-stats action'
+description: 'Generates bundle-stats reports'
+branding:
+  icon: 'box'
+  color: 'blue'
 runs:
   using: 'node12'
   main: 'index.js'
