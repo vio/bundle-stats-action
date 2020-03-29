@@ -1,4 +1,5 @@
 const fs = require('fs').promises;
+const path = require('path');
 const { get } = require('lodash');
 const core = require('@actions/core');
 const artifact = require('@actions/artifact');
@@ -21,15 +22,30 @@ const { createJobs, createReport } = require('@bundle-stats/utils');
     const artifactsByType = createArtifacts(jobs, report, { html: true, json: true });
     const artifacts = Object.values(artifactsByType);
 
-    core.debug('Save artifacts');
-    await Promise.all(
-      artifacts.map(({ filename, output }) => {
-        return fs.writeFile(filename, output);
-      })
-    );
+    const outDir = path.join(__dirname);
+    core.debug(outDir);
 
-    const files = artifacts.map(({ filename }) => filename);
-    await artifact.create().uploadArtifact('bundle-stats', files, __dirname);
+    core.debug('Save artifacts');
+
+    let files = [];
+
+    try {
+      files = await Promise.all(
+        artifacts.map(async ({ filename, output }) => {
+          const fullFilename = path.join(outDir, filename);
+          core.debug('Filename: ' + fullFilename);
+
+          await fs.writeFile(fullFilename, output)
+          return fullFilename;
+        })
+      );
+    } catch (err) {
+      core.error(err.message);
+    }
+
+    await artifact.create().uploadArtifact('bundle-stats', files, outDir, {
+      continueOnError: true
+    });
 
     const info = get(report, 'insights.webpack.assetsSizeTotal.data.info.displayValue');
     if (info) {
