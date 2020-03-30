@@ -5,6 +5,7 @@ const core = require('@actions/core');
 const artifact = require('@actions/artifact');
 const { createArtifacts } = require('@bundle-stats/cli-utils');
 const { createJobs, createReport } = require('@bundle-stats/utils');
+const { filter, validate } = require('@bundle-stats/utils/lib/webpack');
 
 (async () => {
   const statsPath = core.getInput('webpack-stats-path', { required: true });
@@ -13,7 +14,17 @@ const { createJobs, createReport } = require('@bundle-stats/utils');
     core.debug(`Read webpack stats file from ${statsPath}`);
     const content = await fs.readFile(statsPath, 'utf8');
     const source = JSON.parse(content);
-    const jobs = createJobs([{ webpack: source }]);
+
+    core.debug('Filter webpack stats');
+    const data = filter(source);
+
+    core.debug('Validate webpack stats');
+    const invalid = validate(data);
+    if (invalid) {
+      return core.warning(invalid);
+    }
+
+    const jobs = createJobs([{ webpack: data }]);
 
     core.debug('Generate report');
     const report = createReport(jobs);
