@@ -1,0 +1,27 @@
+@import url("~modern-css-reset/dist/reset.css");
+
+body {
+	padding: 1rem;
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+		Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+	color: #222;
+}
+
+.container {
+	margin: 0 auto;
+	width: 100%;
+	max-width: 640px;
+}
+
+.header {
+	text-align: center;
+}
+
+.header__title {
+	margin: 0 0 1rem;
+}
+
+.header__logo {
+	display: inline-block;
+	width: 128px;
+}
