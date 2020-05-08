@@ -11,3 +11,7 @@ inputs:
     descript: 'Webpack stats filepath'
     required: true
     default: 'dist/webpack-stats.json'
+  repo-token: 
+    description: 'Github action auth token'
+    required: false
+    default: ''

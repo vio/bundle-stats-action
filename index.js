@@ -1,14 +1,18 @@
 const fs = require('fs').promises;
 const path = require('path');
 const { get } = require('lodash');
+const got = require('got');
 const core = require('@actions/core');
 const artifact = require('@actions/artifact');
 const { createArtifacts } = require('@bundle-stats/cli-utils');
 const { createJobs, createReport } = require('@bundle-stats/utils');
 const { filter, validate } = require('@bundle-stats/utils/lib/webpack');
 
+const { GITHUB_REPOSITORY, GITHUB_SHA } = process.env;
+
 (async () => {
   const statsPath = core.getInput('webpack-stats-path', { required: true });
+  const token = core.getInput('repo-token', { required: false });
 
   try {
     core.debug(`Read webpack stats file from ${statsPath}`);
@@ -59,7 +63,29 @@ const { filter, validate } = require('@bundle-stats/utils/lib/webpack');
     });
 
     const info = get(report, 'insights.webpack.assetsSizeTotal.data.info.displayValue');
-    if (info) {
+
+    if (!info) {
+      core.warning(`Something went wrong, no information available.`);
+      return;
+    }
+
+    if (token) {
+      await got.post(
+        `https://api.github.com/repos/${GITHUB_REPOSITORY}/statuses/${GITHUB_SHA}`,
+        {
+          json: {
+            state: 'success',
+            context: 'bundle-stats',
+            description: info
+          },
+          responseType: 'json',
+          headers: {
+            authorization: `Bearer ${token}`,
+            'content-type': 'application/json'
+          }
+        }
+      );
+    } else {
       core.warning(`Total Bundle Size: ${info}`);
     }
   } catch (error) {

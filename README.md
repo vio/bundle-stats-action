@@ -1,6 +1,6 @@
 # [BundleStats](https://github.com/relative-ci/bundle-stats) Github Action
 
-This action generates [bundle-stats](https://github.com/relative-ci/bundle-stats) reports for webpack stats.
+This action generates [bundle-stats](https://github.com/relative-ci/bundle-stats) reports for webpack stats and sets the total bundle size as status description for the commit.
 
 ## Inputs
 
@@ -9,6 +9,11 @@ This action generates [bundle-stats](https://github.com/relative-ci/bundle-stats
 **Required** Relative path to an existing webpack stats file, default `dist/webpack-stats.json`.
 
 [bundle-stats webpack configuration options](https://github.com/relative-ci/bundle-stats/tree/master/packages/cli#webpack-configuration)
+
+### `repo-token`
+
+Github action repo token (eg: `${{ secrets.GITHUB_TOKEN }}`). If provided, the bundle size will be
+added as a status.
 
 ## Outputs
 
@@ -26,4 +31,5 @@ jobs:
       uses: vio/bundle-stats-action@v1
       with:
         webpack-stats-path: 'static/stats.json'
+        repo-token: ${{ secrets.GITHUB_TOKEN }}
 ```

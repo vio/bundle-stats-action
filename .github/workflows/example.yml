@@ -26,3 +26,4 @@ jobs:
       uses: ./
       with:
         webpack-stats-path: examples/app/artifacts/webpack-stats.json
+        repo-token: ${{ secrets.GITHUB_TOKEN }}
