@@ -33,3 +33,25 @@ jobs:
         webpack-stats-path: 'static/stats.json'
         repo-token: ${{ secrets.GITHUB_TOKEN }}
 ```
+
+## Related projects
+
+### [relative-ci.com](https://relative-ci.com)
+
+Continuous monitoring for webpack bundles:
+- Monitor and analyze bundle size, assets, modules, packages
+- Github Checks, Slack integration
+- Support for all major CI services (Travis CI, Circle CI, Jenkins, Gitlab CI, Codeship, etc)
+- Free for OpenSource
+
+[Try Beta](https://relative-ci.com)
+
+### [bundle-stats](https://github.com/relative-ci/bundle-stats)
+
+In-depth bundle analyzer for webpack(bundle size, assets, modules, packages).
+
+### [relative-ci/compare](https://compare.relative-ci.com)
+
+Standalone web application to compare Webpack/Lighthouse/Browsertime stats.
+
+[Compare bundle stats](https://compare.relative-ci.com)
