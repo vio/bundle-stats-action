@@ -23,6 +23,6 @@
     "@bundle-stats/cli-utils": "^2.1.1",
     "@bundle-stats/utils": "^2.1.1",
     "got": "^11.1.2",
-    "lodash": "^4.17.15"
+    "lodash": "^4.17.20"
   }
 }
