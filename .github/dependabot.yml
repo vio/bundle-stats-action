@@ -5,26 +5,5 @@ updates:
   schedule:
     interval: weekly
     time: "04:00"
+  target-branch: "update-dependencies"
   open-pull-requests-limit: 10
-  ignore:
-  - dependency-name: "@bundle-stats/cli-utils"
-    versions:
-    - 2.5.0
-    - 2.6.0
-    - 2.7.0
-    - 2.7.2
-  - dependency-name: "@bundle-stats/utils"
-    versions:
-    - 2.5.0
-    - 2.6.0
-    - 2.7.0
-    - 2.7.2
-  - dependency-name: "@actions/artifact"
-    versions:
-    - 0.5.0
-  - dependency-name: got
-    versions:
-    - 11.8.1
-  - dependency-name: lodash
-    versions:
-    - 4.17.20
