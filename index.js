@@ -11,8 +11,12 @@ const { filter, validate } = require('@bundle-stats/utils/lib/webpack');
 const { GITHUB_REPOSITORY, GITHUB_SHA } = process.env;
 
 (async () => {
+  const id = core.getInput('id', { required: false });
   const statsPath = core.getInput('webpack-stats-path', { required: true });
   const token = core.getInput('repo-token', { required: false });
+
+  const runId = ['bundle-stats', id].filter(Boolean).join(' / ');
+  const runArtifact = ['bundle-stats', id].filter(Boolean).join('-');
 
   try {
     core.debug(`Read webpack stats file from ${statsPath}`);
@@ -58,7 +62,8 @@ const { GITHUB_REPOSITORY, GITHUB_SHA } = process.env;
       core.error(err.message);
     }
 
-    await artifact.create().uploadArtifact('bundle-stats', files, outDir, {
+
+    await artifact.create().uploadArtifact(runArtifact, files, outDir, {
       continueOnError: true
     });
 
@@ -75,7 +80,7 @@ const { GITHUB_REPOSITORY, GITHUB_SHA } = process.env;
         {
           json: {
             state: 'success',
-            context: 'bundle-stats',
+            context: runId,
             description: info
           },
           responseType: 'json',

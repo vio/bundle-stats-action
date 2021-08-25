@@ -12,8 +12,13 @@ This action generates [bundle-stats](https://github.com/relative-ci/bundle-stats
 
 ### `repo-token`
 
-Github action repo token (eg: `${{ secrets.GITHUB_TOKEN }}`). If provided, the bundle size will be
-added as a status.
+Github action repo token (eg: `${{ secrets.GITHUB_TOKEN }}`). If provided, the bundle size info will be added as a commit status.
+
+## `id`
+
+Action run id. When running the action multiple times the id will be used to scope the artifacts and
+commit status
+
 
 ## Outputs
 
