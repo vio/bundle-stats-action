@@ -33,7 +33,7 @@ jobs:
   build:
     steps:
     - name: Run bundle-stats
-      uses: vio/bundle-stats-action@v1
+      uses: vio/bundle-stats-action@v1.3.1
       with:
         webpack-stats-path: 'static/webpack-stats.json'
         repo-token: ${{ secrets.GITHUB_TOKEN }}
@@ -46,13 +46,13 @@ jobs:
   build:
     steps:
     - name: Run bundle-stats for app bundle
-      uses: vio/bundle-stats-action@v1
+      uses: vio/bundle-stats-action@v1.3.1
       with:
         id: app
         webpack-stats-path: 'app/webpack-stats.json'
         repo-token: ${{ secrets.GITHUB_TOKEN }}
     - name: Run bundle-stats for web bundle
-      uses: vio/bundle-stats-action@v1
+      uses: vio/bundle-stats-action@v1.3.1
       with:
         id: web
         webpack-stats-path: 'web/webpack-stats.json'
