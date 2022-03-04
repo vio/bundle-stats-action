@@ -1,0 +1,41 @@
+(function (factory) {
+    if (typeof module === "object" && typeof module.exports === "object") {
+        var v = factory(require, exports);
+        if (v !== undefined) module.exports = v;
+    }
+    else if (typeof define === "function" && define.amd) {
+        define(["require", "exports"], factory);
+    }
+})(function (require, exports) {
+    "use strict";
+    Object.defineProperty(exports, "__esModule", { value: true });
+    var SI = {
+        N: {
+            name: {
+                singular: 'Newton',
+                plural: 'Newtons',
+            },
+            to_anchor: 1,
+        },
+        kN: {
+            name: {
+                singular: 'Kilonewton',
+                plural: 'Kilonewtons',
+            },
+            to_anchor: 1000,
+        },
+        lbf: {
+            name: {
+                singular: 'Pound-force',
+                plural: 'Pound-forces',
+            },
+            to_anchor: 4.44822,
+        },
+    };
+    var measure = {
+        systems: {
+            SI: SI,
+        },
+    };
+    exports.default = measure;
+});
