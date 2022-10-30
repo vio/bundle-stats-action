@@ -22,7 +22,7 @@
     "@actions/core": "^1.6.0",
     "@bundle-stats/cli-utils": "^3.2.6",
     "@bundle-stats/utils": "^3.2.6",
-    "got": "^11.8.3",
+    "got": "^12.5.2",
     "lodash": "^4.17.21"
   }
 }
