@@ -19,7 +19,7 @@
   "license": "MIT",
   "dependencies": {
     "@actions/artifact": "^1.0.0",
-    "@actions/core": "^1.6.0",
+    "@actions/core": "^1.10.0",
     "@bundle-stats/cli-utils": "^3.2.6",
     "@bundle-stats/utils": "^3.2.6",
     "got": "^11.8.3",
