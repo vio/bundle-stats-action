@@ -1,0 +1,7 @@
+{
+  "version": 3,
+  "sources": ["../src/objectToSearchString.ts"],
+  "sourcesContent": ["import { EncodedQuery } from './types';\n\n/**\n * Default implementation of objectToSearchString powered by URLSearchParams.\n * Does not support null values. Does not prefix with \"?\"\n * This converts an object { foo: '123', bar: 'x' } to a search string `?foo=123&bar=x`\n * This is only a very basic version, you may prefer the advanced versions offered\n * by third party libraries like query-string (\"stringify\") or qs.\n */\nexport function objectToSearchString(encodedParams: EncodedQuery): string {\n  const params = new URLSearchParams();\n  const entries = Object.entries(encodedParams);\n\n  for (const [key, value] of entries) {\n    if (value === undefined) continue;\n    if (value === null) continue;\n\n    if (Array.isArray(value)) {\n      for (const item of value) {\n        params.append(key, item ?? '');\n      }\n    } else {\n      params.append(key, value);\n    }\n  }\n\n  return params.toString();\n}\n"],
+  "mappings": "AASO,SAAS,qBAAqB,eAAqC;AACxE,QAAM,SAAS,IAAI,gBAAgB;AACnC,QAAM,UAAU,OAAO,QAAQ,aAAa;AAE5C,aAAW,CAAC,KAAK,KAAK,KAAK,SAAS;AAClC,QAAI,UAAU;AAAW;AACzB,QAAI,UAAU;AAAM;AAEpB,QAAI,MAAM,QAAQ,KAAK,GAAG;AACxB,iBAAW,QAAQ,OAAO;AACxB,eAAO,OAAO,KAAK,sBAAQ,EAAE;AAAA,MAC/B;AAAA,IACF,OAAO;AACL,aAAO,OAAO,KAAK,KAAK;AAAA,IAC1B;AAAA,EACF;AAEA,SAAO,OAAO,SAAS;AACzB;",
+  "names": []
+}
