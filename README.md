@@ -61,19 +61,23 @@ jobs:
 
 ## Related projects
 
-### [relative-ci.com](https://relative-ci.com)
+### :cyclone: [relative-ci.com](https://relative-ci.com?utm_medium=bundle-stats-action)
 
-Continuous monitoring for webpack bundles:
-- Monitor and analyze bundle size, assets, modules, packages
-- Github Checks, Slack integration
-- Support for all major CI services (Travis CI, Circle CI, Jenkins, Gitlab CI, Codeship, etc)
-- Free for OpenSource
+#### In-depth webpack bundle analysis and monitoring
 
-[Try Beta](https://relative-ci.com)
+RelativeCI automates webpack bundle analysis, monitoring, and alerting so you can identify and fix bundle regressions before shipping to production:
+
+- :crystal_ball: Analyze webpack bundle stats on every build
+- :chart_with_upwards_trend: Monitor webpack bundle stats changes and identify tendencies over extended periods
+- :bell: Get notified via GitHub Checks, GitHub Pull Request comments, and Slack notifications
+- :hammer: Support for all major CI services (CircleCI, GitHub Actions, Gitlab CI, Jenkins, Travis CI)
+- :two_hearts: Always free for Open Source
+
+[Try for free](https://relative-ci.com?utm_medium=bundle-stats-action)
 
 ### [bundle-stats](https://github.com/relative-ci/bundle-stats)
 
-In-depth bundle analyzer for webpack(bundle size, assets, modules, packages).
+Analyze webpack stats(bundle size, assets, modules, packages) and compare the results between different builds.
 
 ### [relative-ci/compare](https://compare.relative-ci.com)
 
