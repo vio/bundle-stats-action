@@ -1,0 +1,7 @@
+{
+  "version": 3,
+  "sources": ["../src/searchStringToObject.ts"],
+  "sourcesContent": ["import { EncodedQuery } from './types';\n\n/**\n * Default implementation of searchStringToObject powered by URLSearchParams\n * This converts a search string like `?foo=123&bar=x` to { foo: '123', bar: 'x' }\n * This is only a very basic version, you may prefer the advanced versions offered\n * by third party libraries like query-string (\"parse\") or qs.\n */\nexport function searchStringToObject(searchString: string): EncodedQuery {\n  const params = new URLSearchParams(searchString);\n  const parsed: EncodedQuery = {};\n  for (let [key, value] of params) {\n    if (Object.prototype.hasOwnProperty.call(parsed, key)) {\n      if (Array.isArray(parsed[key])) {\n        (parsed[key] as string[]).push(value);\n      } else {\n        parsed[key] = [parsed[key] as string, value];\n      }\n    } else {\n      parsed[key] = value;\n    }\n  }\n\n  return parsed;\n}\n"],
+  "mappings": "AAQO,SAAS,qBAAqB,cAAoC;AACvE,QAAM,SAAS,IAAI,gBAAgB,YAAY;AAC/C,QAAM,SAAuB,CAAC;AAC9B,WAAS,CAAC,KAAK,KAAK,KAAK,QAAQ;AAC/B,QAAI,OAAO,UAAU,eAAe,KAAK,QAAQ,GAAG,GAAG;AACrD,UAAI,MAAM,QAAQ,OAAO,IAAI,GAAG;AAC9B,QAAC,OAAO,KAAkB,KAAK,KAAK;AAAA,MACtC,OAAO;AACL,eAAO,OAAO,CAAC,OAAO,MAAgB,KAAK;AAAA,MAC7C;AAAA,IACF,OAAO;AACL,aAAO,OAAO;AAAA,IAChB;AAAA,EACF;AAEA,SAAO;AACT;",
+  "names": []
+}

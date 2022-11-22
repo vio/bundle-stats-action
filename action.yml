@@ -4,7 +4,7 @@ branding:
   icon: 'box'
   color: 'blue'
 runs:
-  using: 'node12'
+  using: 'node16'
   main: 'index.js'
 inputs:
   id: 
