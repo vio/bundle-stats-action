@@ -12,6 +12,9 @@ export const App = () => (
       <p className="header__description">
         BundleStats example for custom webpack config
       </p>
+      <p className="header__description">
+        BundleStats example for custom webpack config
+      </p>
     </header>
   </div>
 );
